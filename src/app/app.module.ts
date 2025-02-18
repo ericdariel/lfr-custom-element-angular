@@ -20,7 +20,6 @@ import {AppComponent} from './app.component';
 
 @NgModule({
 	declarations: [AppComponent],
-	entryComponents: [AppComponent],
 	imports: [BrowserModule],
 	providers: [],
 })
