@@ -2,14 +2,32 @@
 
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<title>LiferaySampleCustomElement3</title>
-<base href="/" />
-<meta content="width=device-width, initial-scale=1" name="viewport" />
-<link href="favicon.ico" rel="icon" type="image/x-icon" />
+    <meta charset="utf-8" />
+    <title>LiferaySampleCustomElement3</title>
+    <base href="/" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link href="favicon.ico" rel="icon" type="image/x-icon" />
+    <script type="importmap">
+        {
+            "imports": {
+                "@angular/core": "https://cdn.jsdelivr.net/npm/@angular/core@19.1.6/+esm",
+                "@angular/common": "https://cdn.jsdelivr.net/npm/@angular/common@19.1.6/+esm",
+                "@angular/compiler": "https://cdn.jsdelivr.net/npm/@angular/compiler@19.1.6/+esm",
+                "@angular/platform-browser": "https://cdn.jsdelivr.net/npm/@angular/platform-browser@19.1.6/+esm",
+                "@angular/platform-browser-dynamic": "https://cdn.jsdelivr.net/npm/@angular/platform-browser-dynamic@19.1.6/+esm",
+                "@angular/router": "https://cdn.jsdelivr.net/npm/@angular/router@19.1.6/+esm",
+                "@angular/animations": "https://cdn.jsdelivr.net/npm/@angular/animations@19.1.6/+esm",
+                "@angular/elements": "https://cdn.jsdelivr.net/npm/@angular/elements@19.1.6/+esm",
+                "@angular/forms": "https://cdn.jsdelivr.net/npm/@angular/forms@19.1.6/+esm",
+                "tslib": "https://cdn.jsdelivr.net/npm/tslib@2.3.0/+esm",
+                "zone.js": "https://cdn.jsdelivr.net/npm/zone.js@0.15.0/+esm",
+                "rxjs": "https://cdn.jsdelivr.net/npm/rxjs@7.8.0/+esm"
+            }
+        }
+    </script>
 </head>
 
 <body>
-<app-root></app-root>
+<liferay-sample-custom-element-with-importmap></liferay-sample-custom-element-with-importmap>
 </body>
 </html>

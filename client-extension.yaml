@@ -1,17 +1,16 @@
 assemble:
-    - from: dist/liferay-sample-custom-element-3
+    - from: dist/liferay-sample-custom-element-with-importmap
       into: static
-liferay-sample-custom-element-3:
+liferay-sample-custom-element-with-importmap:
     cssURLs:
         - styles.*.css
-    friendlyURLMapping: liferay-sample-custom-element-3
-    htmlElementName: liferay-sample-custom-element-3
+    friendlyURLMapping: liferay-sample-custom-element-with-importmap
+    htmlElementName: liferay-sample-custom-element-with-importmap
     instanceable: false
-    name: Liferay Sample Custom Element 3
+    name: Liferay Sample Custom Element with importmap
     portletCategoryName: category.client-extensions
     type: customElement
     urls:
-        - main.*.js
         - polyfills.*.js
-        - runtime.*.js
+        - main.*.js
     useESM: true

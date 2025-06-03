@@ -12,14 +12,49 @@
  * details.
  */
 
-import {Component, Input} from '@angular/core';
+import {Component, OnDestroy, OnInit, ChangeDetectorRef} from '@angular/core';
+import { CommonModule } from '@angular/common'; // Import CommonModule
+
+declare const Liferay: {
+    on(event: string, callback: (event: any) => void): any;
+    detach(event: string, callback: any): void;
+};
 
 @Component({
     selector: 'app-root',
     styleUrls: ['./app.component.css'],
     templateUrl: './app.component.html',
-    standalone: false
+    standalone: true,
+    imports: [CommonModule]
 })
-export class AppComponent {
-	@Input('title') title = 'liferay-sample-custom-element-3';
+export class AppComponent implements OnInit, OnDestroy {
+
+    private liferayEventHandler: any;
+
+    title: string = '';
+
+    constructor(private cdr: ChangeDetectorRef) {}
+    
+    public setTitle(newTitle: string) {
+        this.title = newTitle;
+    }
+
+    ngOnInit(): void {
+        this.setTitle('liferay-sample-custom-element-with-importmap');
+
+        this.liferayEventHandler = Liferay.on('updateTitle', (event: any) => {
+            console.log('Événement reçu depuis Liferay :', event);
+            if (event?.title) {
+                console.log('Title reçu depuis Liferay :', event.title);
+                this.title = event.title;
+                this.cdr.detectChanges();
+            }
+        });
+    }
+    
+    ngOnDestroy(): void {
+        if (this.liferayEventHandler) {
+            Liferay.detach('updateTitle', this.liferayEventHandler);
+        }
+    }
 }

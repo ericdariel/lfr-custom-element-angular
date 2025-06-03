@@ -1,6 +1,7 @@
 {
 	"angularCompilerOptions": {
 		"enableI18nLegacyMessageIdFormat": false,
+		"strict": true,
 		"strictInjectionParameters": true,
 		"strictInputAccessModifiers": true,
 		"strictTemplates": true
@@ -14,10 +15,10 @@
 		"forceConsistentCasingInFileNames": true,
 		"importHelpers": true,
 		"lib": [
-			"ES2022",
+			"esnext",
 			"dom"
 		],
-		"module": "ES2022",
+		"module": "esnext",
 		"moduleResolution": "node",
 		"noFallthroughCasesInSwitch": true,
 		"noImplicitOverride": true,
@@ -26,7 +27,7 @@
 		"outDir": "./dist/out-tsc",
 		"sourceMap": true,
 		"strict": true,
-		"target": "ES2022",
+		"target": "esnext",
 		"useDefineForClassFields": false
 	}
 }

@@ -2,18 +2,17 @@
 	"$schema": "./node_modules/@angular/cli/lib/config/schema.json",
 	"newProjectRoot": "projects",
 	"projects": {
-		"liferay-sample-custom-element-3": {
+		"liferay-sample-custom-element-with-importmap": {
 			"architect": {
 				"build": {
-					"builder": "@angular-devkit/build-angular:browser",
+					"builder": "@angular-devkit/build-angular:browser-esbuild",
 					"configurations": {
 						"development": {
-							"buildOptimizer": false,
 							"extractLicenses": false,
 							"namedChunks": true,
 							"optimization": false,
 							"sourceMap": true,
-							"vendorChunk": true
+							"aot": true
 						},
 						"production": {
 							"budgets": [
@@ -28,7 +27,12 @@
 									"type": "anyComponentStyle"
 								}
 							],
-							"outputHashing": "all"
+							"optimization": true,
+							"sourceMap": false,
+							"namedChunks": false,
+							"extractLicenses": true,
+							"outputHashing": "none",
+							"aot": true
 						}
 					},
 					"defaultConfiguration": "production",
@@ -39,7 +43,7 @@
 						],
 						"index": "src/index.html",
 						"main": "src/main.ts",
-						"outputPath": "dist/liferay-sample-custom-element-3",
+						"outputPath": "dist/liferay-sample-custom-element-with-importmap",
 						"polyfills": [
 							"zone.js"
 						],
@@ -48,13 +52,27 @@
 						"styles": [
 							"src/styles.css"
 						],
-						"tsConfig": "tsconfig.app.json"
+						"tsConfig": "tsconfig.app.json",
+						"externalDependencies": [
+							"@angular/animations",
+							"@angular/common", 
+							"@angular/compiler",
+							"@angular/core",
+							"@angular/elements",
+							"@angular/forms",
+							"@angular/platform-browser", 
+							"@angular/platform-browser-dynamic",
+							"@angular/router",
+							"rxjs",
+							"tslib",
+							"zone.js"
+						]
 					}
 				},
 				"extract-i18n": {
 					"builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "liferay-sample-custom-element-3:build"
+            "buildTarget": "liferay-sample-custom-element-with-importmap:build"
 					}
 				},
 				"serve": {
@@ -64,10 +82,10 @@
 					},
 					"configurations": {
             "development": {
-              "buildTarget": "liferay-sample-custom-element-3:build:development"
+              "buildTarget": "liferay-sample-custom-element-with-importmap:build:development"
 						},
             "production": {
-              "buildTarget": "liferay-sample-custom-element-3:build:production"
+              "buildTarget": "liferay-sample-custom-element-with-importmap:build:production"
 						}
 					},
 					"defaultConfiguration": "development"
